@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Feliz 4 Meses ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#58233A;
+    overflow-x:hidden;
+    color:white;
+    font-family:'Cormorant Garamond', serif;
+    min-width:1400px;
+}
+
+/* FUNDO */
+
+.bg{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    overflow:hidden;
+}
+
+.blur{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:0.25;
+}
+
+.blur1{
+    width:700px;
+    height:700px;
+    background:#ffb3c6;
+    top:-250px;
+    left:-250px;
+}
+
+.blur2{
+    width:800px;
+    height:800px;
+    background:#ffc2d1;
+    bottom:-300px;
+    right:-300px;
+}
+
+/* CORAÇÕES */
+
+.heart{
+    position:fixed;
+    color:rgba(255,255,255,0.12);
+    z-index:-1;
+    animation:subir linear infinite;
+}
+
+@keyframes subir{
+
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+
+    to{
+        transform:translateY(-120vh);
+        opacity:1;
+    }
+
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:80px 10%;
+}
+
+.hero h1{
+    font-size:160px;
+    font-family:'Parisienne', cursive;
+    line-height:1.1;
+    margin-bottom:50px;
+}
+
+.hero p{
+    max-width:1400px;
+    font-size:45px;
+    line-height:2.1;
+    font-weight:300;
+}
+
+/* SEÇÕES */
+
+.section{
+    padding:220px 10%;
+    text-align:center;
+}
+
+.title{
+    font-size:120px;
+    margin-bottom:70px;
+    font-family:'Great Vibes', cursive;
+}
+
+.text{
+    max-width:1400px;
+    margin:auto;
+    font-size:42px;
+    line-height:2.3;
+    font-weight:300;
+}
+
+/* TIMER */
+
+.timer{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:40px;
+    margin-top:100px;
+}
+
+.time-box{
+    width:220px;
+    height:220px;
+    border-radius:40px;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+.time-box h2{
+    font-size:70px;
+}
+
+.time-box span{
+    font-size:30px;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
+    gap:40px;
+    margin-top:100px;
+}
+
+.card{
+    background:rgba(255,255,255,0.05);
+    border-radius:40px;
+    padding:60px;
+    backdrop-filter:blur(10px);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    font-family:'Parisienne', cursive;
+    font-size:65px;
+    margin-bottom:30px;
+}
+
+.card p{
+    font-size:34px;
+    line-height:2;
+}
+
+/* GALERIA */
+
+.photos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:35px;
+    margin-top:100px;
+}
+
+.photo{
+    height:500px;
+    border-radius:35px;
+    background:rgba(255,255,255,0.05);
+    border:2px solid rgba(255,255,255,0.1);
+    overflow:hidden;
+    transition:0.4s;
+}
+
+.photo:hover{
+    transform:scale(1.03);
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* VIDEO */
+
+.video-area{
+    margin-top:100px;
+    display:flex;
+    justify-content:center;
+}
+
+.video-box{
+    width:1200px;
+    height:680px;
+    border-radius:40px;
+    overflow:hidden;
+    background:rgba(255,255,255,0.05);
+    border:2px solid rgba(255,255,255,0.1);
+}
+
+.video-box video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* FINAL */
+
+.final{
+    padding:260px 10%;
+    text-align:center;
+}
+
+.final h1{
+    font-size:180px;
+    font-family:'Parisienne', cursive;
+    margin-bottom:60px;
+}
+
+.final p{
+    max-width:1400px;
+    margin:auto;
+    font-size:45px;
+    line-height:2.3;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- FUNDO -->
+
+<div class="bg">
+<div class="blur blur1"></div>
+<div class="blur blur2"></div>
+</div>
+
+<!-- CORAÇÕES -->
+
+<script>
+
+for(let i=0;i<55;i++){
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML = "❤";
+
+    heart.style.left = Math.random()*100 + "vw";
+
+    heart.style.fontSize = (20 + Math.random()*40) + "px";
+
+    heart.style.animationDuration = (5 + Math.random()*10) + "s";
+
+    document.body.appendChild(heart);
+}
+
+</script>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1>
+Feliz 4 meses <br>
+meu amorrrrr
+</h1>
+
+<p>
+Desde o momento em que você apareceu na minha vida
+alguma coisa dentro de mim mudou completamente
+
+foi como se tudo tivesse ficado mais bonito
+mais leve
+mais verdadeiro
+e mais especial
+
+você conseguiu transformar simples mensagens
+em memórias que eu quero guardar para sempre
+
+e até hoje
+mesmo depois de tantas madrugadas juntos
+mesmo depois de tantos momentos especiais
+
+eu ainda sinto meu coração acelerar
+toda vez que vejo você aparecendo na minha tela
+
+porque amar você nunca virou rotina
+
+amar você continua sendo
+a parte mais intensa e bonita dos meus dias
+</p>
+
+</section>
+
+<!-- TIMER -->
+
+<section class="section">
+
+<h2 class="title">
+Nosso tempo juntos
+</h2>
+
+<div class="timer">
+
+<div class="time-box">
+<h2 id="days">0</h2>
+<span>Dias</span>
+</div>
+
+<div class="time-box">
+<h2 id="hours">0</h2>
+<span>Horas</span>
+</div>
+
+<div class="time-box">
+<h2 id="minutes">0</h2>
+<span>Minutos</span>
+</div>
+
+<div class="time-box">
+<h2 id="seconds">0</h2>
+<span>Segundos</span>
+</div>
+
+</div>
+
+</section>
+
+<!-- COISAS -->
+
+<section class="section">
+
+<h2 class="title">
+Coisas que eu amo em você
+</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Seu jeito</h3>
+<p>
+Eu amo o jeito que você fala comigo
+e como você consegue transformar momentos simples
+em memórias especiais
+</p>
+</div>
+
+<div class="card">
+<h3>Seu carinho</h3>
+<p>
+Você me faz sentir amado de uma forma tão sincera
+que às vezes eu paro e penso
+em como tive sorte de encontrar você
+</p>
+</div>
+
+<div class="card">
+<h3>Seu sorriso</h3>
+<p>
+Mesmo distante
+o seu sorriso consegue iluminar completamente meus dias
+e fazer qualquer tristeza desaparecer
+</p>
+</div>
+
+<div class="card">
+<h3>Sua intensidade</h3>
+<p>
+Eu amo o jeito que você sente as coisas
+o jeito que você demonstra amor
+e como tudo em você parece tão verdadeiro
+</p>
+</div>
+
+<div class="card">
+<h3>Sua voz</h3>
+<p>
+Sua voz consegue me acalmar
+mesmo nos dias mais difíceis
+e sinceramente
+eu poderia ficar horas ouvindo você falar
+</p>
+</div>
+
+<div class="card">
+<h3>Seu ciúme fofo</h3>
+<p>
+Até o jeito que você demonstra ciúme
+consegue ser adorável para mim
+porque mostra o quanto você realmente se importa(vc nunca demonstrou eu acho kkkkk) 
+</p>
+</div>
+
+<div class="card">
+<h3>Seu olhar</h3>
+<p>
+Mesmo pela tela
+eu consigo perceber o quanto seu olhar é lindo
+e como ele consegue mexer comigo
+de um jeito inexplicável
+</p>
+</div>
+
+<div class="card">
+<h3>Seu coração</h3>
+<p>
+O que eu mais amo em você
+é o coração incrível que você tem
+
+o jeito que você cuida
+ama
+se preocupa
+e demonstra sentimentos
+faz você ser única
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- COMO EU TE VEJO -->
+
+<section class="section">
+
+<h2 class="title">
+Como eu te vejo
+</h2>
+
+<p class="text">
+Eu te vejo como alguém rara
+
+alguém que entrou na minha vida de forma inesperada
+mas conseguiu ocupar um espaço
+que ninguém mais conseguiria ocupar
+
+eu vejo você como meu conforto
+meu porto seguro
+minha calmaria nos dias difíceis
+
+e quanto mais o tempo passa
+mais eu percebo
+que foi você quem meu coração escolheu de verdade
+</p>
+
+</section>
+
+<!-- VIDEO -->
+
+<section class="section">
+
+<h2 class="title">
+٩(*•͈ ꇴ •͈*)و ̑̑❀٩(*•͈ ꇴ •͈*)و ̑̑❀٩(*•͈ ꇴ •͈*)و ̑̑❀٩(*•͈ ꇴ •͈*)و ̑̑❀٩(*•͈ ꇴ •͈*)و ̑̑❀
+</h2>
+
+<p class="text">
+Só fiz esse vídeo pq eu estava com preguiça de programar, odeio romance
+</p>
+
+<div class="video-area">
+
+<div class="video-box">
+
+<video id="meuVideo" controls loop playsinline>
+<source src="video.mp4" type="video/mp4">
+</video>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SE EU PUDESSE -->
+
+<section class="section">
+
+<h2 class="title">
+Se eu pudesse
+</h2>
+
+<p class="text">
+Se eu pudesse
+eu atravessaria qualquer distância
+só para poder segurar sua mão por alguns minutos
+
+Se eu pudesse
+eu faria o tempo parar
+em todos os momentos em que você sorriu para mim
+
+e sinceramente
+
+em todas as vidas possíveis
+eu ainda escolheria você
+</p>
+
+</section>
+
+<!-- SAUDADE -->
+
+<section class="section">
+
+<h2 class="title">
+Quando eu sinto saudade
+</h2>
+
+<p class="text">
+Quando a saudade aperta
+eu releio nossas conversas
+escuto músicas que me lembram você
+e imagino o dia em que finalmente vou poder te abraçar
+
+porque mesmo distante
+você continua sendo a pessoa mais próxima do meu coração
+</p>
+
+</section>
+
+<!-- FUTURO -->
+
+<section class="section">
+
+<h2 class="title">
+Nosso futuro
+</h2>
+
+<p class="text">
+Eu sonho muito com o nosso futuro
+
+quero assistir filmes com você
+andar de mãos dadas
+ouvir sua risada pessoalmente
+e transformar momentos simples
+nas memórias mais bonitas da minha vida
+
+porque amar você
+foi a coisa mais bonita que já aconteceu comigo
+</p>
+
+</section>
+
+<!-- GALERIA -->
+
+<section class="section">
+
+<h2 class="title">
+Como eu te vejo(literal) 
+</h2>
+
+<div class="photos">
+
+<div class="photo">
+<img src="foto1.jpg">
+</div>
+
+<div class="photo">
+<img src="foto2.jpg">
+</div>
+
+<div class="photo">
+<img src="foto3.jpg">
+</div>
+
+<div class="photo">
+<img src="foto4.jpg">
+</div>
+
+<div class="photo">
+<img src="foto5.jpg">
+</div>
+
+<div class="photo">
+<img src="foto6.jpg">
+</div>
+
+<div class="photo">
+<img src="foto7.jpg">
+</div>
+
+</div>
+
+</section>
+
+<!-- CARTA -->
+
+<section class="section">
+
+<h2 class="title">
+Uma carta para você
+</h2>
+
+<p class="text">
+Meu amor, Aleh,
+
+Às vezes eu paro pra pensar em como alguém conseguiu se tornar tão importante pra mim mesmo estando longe. É estranho explicar, porque antes de você eu achava que distância era algo forte demais, algo que esfriava sentimentos, mas você apareceu e conseguiu fazer exatamente o contrário. Você transformou quilômetros em detalhe. Você fez áudios virarem abraço, mensagens virarem conforto e simples notificações virarem a melhor parte do meu dia.
+
+Eu amo o jeito que você consegue mudar meu humor sem nem perceber. Amo quando você me manda mensagem do nada, quando conta coisas pequenas do seu dia, quando compartilha pensamentos aleatórios comigo como se eu fosse o lugar mais seguro do mundo. E talvez eu realmente queira ser isso pra você: um lugar seguro, um lugar leve, alguém que você possa olhar e pensar “eu tô em casa”.
+
+Tem dias em que eu sinto muita saudade de algo que ainda nem vivi completamente com você. Saudade de te abraçar de verdade, de andar ao seu lado, de ouvir sua voz perto de mim sem tela, sem internet, sem despedidas rápidas. Mas ao mesmo tempo, essa saudade me faz perceber o quanto tudo isso é real. Porque ninguém sente tanta falta assim de algo que não importa.
+
+Você entrou na minha vida de um jeito inesperado e ficou. Ficou nos meus pensamentos, nos meus planos, nas minhas músicas favoritas, nos meus horários, no meu coração inteiro. Hoje várias coisas me lembram você: músicas, fotos, frases, horários iguais, noites silenciosas e até coisas simples do cotidiano. É como se meu mundo tivesse aprendido automaticamente a te procurar em tudo.
+
+Eu queria que você soubesse que eu admiro muito quem você é. Não só pela sua beleza, mas pelo seu jeito, pela sua personalidade, pela forma como você fala, como se importa, como consegue ser especial sem precisar tentar. Você tem detalhes que talvez nem perceba, mas que fazem toda diferença pra mim. E são justamente esses detalhes que me fazem ter certeza de que eu quero continuar vivendo muita coisa ao seu lado.
+
+Talvez nosso relacionamento não seja o mais fácil do mundo. A distância dói, a saudade pesa, às vezes o tempo atrapalha, mas mesmo assim eu escolho você. Escolho continuar aqui. Escolho esperar os dias melhores, as chamadas mais longas, os encontros que ainda vão acontecer, os momentos que ainda vamos criar juntos. Porque amar você vale a pena.
+
+E eu gosto de imaginar nosso futuro. Imaginar nós dois contando essa história lá na frente e rindo de tudo que tivemos que enfrentar. Imagino nosso primeiro encontro, nosso primeiro abraço demorado, nossas fotos juntos, nossos momentos simples. Porque no fundo, o que eu mais quero não é algo perfeito  é algo verdadeiro. E com você, tudo parece verdadeiro.
+
+Obrigado por existir na minha vida. Obrigado por me ouvir, por me fazer sorrir, por me fazer sentir amado também. Você não faz ideia do quanto sua presença mudou meus dias. Mesmo nos momentos difíceis, pensar em você consegue trazer calma.
+
+Eu prometo continuar cuidando de nós, continuar valorizando você e tudo que construímos. Prometo continuar demonstrando o quanto você é importante pra mim, porque você merece sentir isso todos os dias.
+
+E se algum dia você duvidar do quanto eu te amo, lembra de uma coisa: entre bilhões de pessoas no mundo, foi você quem conseguiu ganhar meu coração inteiro.
+
+Com todo meu amor,
+
+Erick ❤️
+</p>
+
+</section>
+
+<!-- FINAL -->
+
+<section class="final">
+
+<h1>
+Eu te amo infinitamente
+</h1>
+
+<p>
+Obrigado por esses quatro meses maravilhosos
+
+obrigado por cada conversa
+cada madrugada
+cada momento
+e cada detalhe que fez eu me apaixonar ainda mais por você
+
+você virou parte de mim ❤️
+
+Desculpa por ter ficado muito pequeno, é que a porra do krlh da disgraça do código que eu fiz bonitinho deu erro, e até agora eu não achei a porra do erro. 
+</p>
+
+</section>
+
+<!-- TIMER -->
+
+<script>
+
+const startDate = new Date("2026-01-19T00:00:00");
+
+function updateTimer(){
+
+    const now = new Date();
+
+    const diff = now - startDate;
+
+    const days = Math.floor(diff / (1000*60*60*24));
+
+    const hours = Math.floor((diff / (1000*60*60)) % 24);
+
+    const minutes = Math.floor((diff / (1000*60)) % 60);
+
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+}
+
+setInterval(updateTimer,1000);
+
+updateTimer();
+
+</script>
+
+<!-- VIDEO COM SOM AO CLICAR -->
+
+<script>
+
+const video = document.getElementById("meuVideo");
+
+video.addEventListener("click", () => {
+
+    if(video.paused){
+
+        video.muted = false;
+        video.play();
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
